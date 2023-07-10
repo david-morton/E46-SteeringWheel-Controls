@@ -37,3 +37,14 @@ void loop() {
   SERIAL_PORT_MONITOR.println(inputValueMisc);
   delay(1000);
 }
+
+/*
+State       Audio       Misc
+Resting     880         865
+Vol +       679
+Vol -       148
+Track +     315
+Track -     494
+Phone                   578
+R/T                     308
+*/
