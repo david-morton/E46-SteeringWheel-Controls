@@ -53,11 +53,11 @@ AnalogButtons analogButtonsAudio(ANALOG_PIN_AUDIO, INPUT);
 AnalogButtons analogButtonsMisc(ANALOG_PIN_MISC, INPUT);
 
 // Define our button behaviors. We are over-riding some of the defaults so
-// that held buttons repeat every 100ms and a hold is detected after 500ms. 
-Button b1 = Button(315, &b1Click, &b1Hold, 500, 100);
+// that held buttons repeat every 100ms or 300ms and a hold is detected after 500ms. 
+Button b1 = Button(315, &b1Click, &b1Hold, 500, 300);
 Button b2 = Button(679, &b2Click, &b2Hold, 500, 100);
 Button b3 = Button(148, &b3Click, &b3Hold, 500, 100);
-Button b4 = Button(494, &b4Click, &b4Hold, 500, 100);
+Button b4 = Button(494, &b4Click, &b4Hold, 500, 300);
 Button b5 = Button(308, &b5Click);
 Button b6 = Button(578, &b6Click);
 
