@@ -18,35 +18,74 @@ Track +   | 315  |      |  S1
 Track -   | 494  |      |  S4
 Phone     |      |  578 |  S6
 R/T       |      |  308 |  S5
+
+The Alpine interface code is copied from https://github.com/Wnthr/arduino-alpine-remote/tree/master
 */
 
 #include <AnalogButtons.h>
 #include <Arduino.h>
+#include "AlpineRemote.h"
 
 #define ANALOG_PIN_AUDIO A0
 #define ANALOG_PIN_MISC A1
 
+// Define the pin used for output to the head unit
+const int alpinePin = 3;
+
+// Create the Alpine output object
+AlpineRemote alpine(alpinePin);
+
 // Button Definition: Track +
-void b1Click() { SERIAL_PORT_MONITOR.println("button 1 clicked"); }
-void b1Hold() { SERIAL_PORT_MONITOR.println("button 1 held"); }
+void b1Click() { 
+  SERIAL_PORT_MONITOR.println("Track + click");
+  alpine.writeTrackUp();
+}
+void b1Hold() { 
+  SERIAL_PORT_MONITOR.println("Track + hold");
+  alpine.writeTrackUp();
+}
 
 // Button Definition: Volume +
-void b2Click() { SERIAL_PORT_MONITOR.println("button 2 clicked"); }
-void b2Hold() { SERIAL_PORT_MONITOR.println("button 2 held"); }
+void b2Click() { 
+  SERIAL_PORT_MONITOR.println("Volume + click");
+  alpine.writeVolumeUp();
+}
+void b2Hold() { 
+  SERIAL_PORT_MONITOR.println("Volume + hold");
+  alpine.writeVolumeUp();
+}
 
 // Button Definition: Volume -
-void b3Click() { SERIAL_PORT_MONITOR.println("button 3 clicked"); }
-void b3Hold() { SERIAL_PORT_MONITOR.println("button 3 held"); }
+void b3Click() { 
+  SERIAL_PORT_MONITOR.println("Volume - click");
+  alpine.writeVolumeDown();
+}
+void b3Hold() { 
+  SERIAL_PORT_MONITOR.println("Volume - hold");
+  alpine.writeVolumeDown();
+}
 
 // Button Definition: Track -
-void b4Click() { SERIAL_PORT_MONITOR.println("button 4 clicked"); }
-void b4Hold() { SERIAL_PORT_MONITOR.println("button 4 held"); }
+void b4Click() { 
+  SERIAL_PORT_MONITOR.println("Track - click");
+  alpine.writeTrackDown();
+}
+void b4Hold() { 
+  SERIAL_PORT_MONITOR.println("Track - hold");
+  alpine.writeTrackDown();
+}
 
 // Button Definition: R/T
-void b5Click() { SERIAL_PORT_MONITOR.println("button 5 clicked"); }
+void b5Click() { 
+  SERIAL_PORT_MONITOR.println("R/T click");
+  alpine.writeSourceSelect();
+}
 
 // Button Definition: Phone
-void b6Click() { SERIAL_PORT_MONITOR.println("button 6 clicked"); }
+void b6Click() { 
+  SERIAL_PORT_MONITOR.println("Phone click");
+  alpine.writeActivateSiri();
+}
 
 // Create our button objects
 AnalogButtons analogButtonsAudio(ANALOG_PIN_AUDIO, INPUT);
