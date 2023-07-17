@@ -27,6 +27,7 @@ class AlpineRemote
     void writeBandSelect();
     void writeActivateSiri();
     void writeActivateMenu();
+    void writePhone();
 
     void writeCommand(uint16_t command);
 

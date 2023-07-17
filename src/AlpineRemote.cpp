@@ -64,9 +64,11 @@ void AlpineRemote::writeBandSelect() {
   AlpineRemote::writeCommand(0x6BF7);
 }
 
-void AlpineRemote::writeActivateSiri() {
+void AlpineRemote::writePhone() {
   AlpineRemote::writeCommand(0x7B6E);
 }
+
+void AlpineRemote::writeActivateSiri() { AlpineRemote::writeCommand(0x7B6E); }
 
 void AlpineRemote::writeCommand(uint16_t command) {
 
